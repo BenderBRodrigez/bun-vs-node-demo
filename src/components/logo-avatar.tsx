@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
+import LogoIcon from "../icons/logo.svg?react";
 import { twMerge } from "tailwind-merge";
-import LogoIcon from "../icons/logo.svg";
 
 type Props = HTMLAttributes<HTMLDivElement> & {
   iconClassName?: string;

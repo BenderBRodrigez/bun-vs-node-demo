@@ -5,13 +5,13 @@ export function getQueryParams(params: URLSearchParams) {
 export function setQueryParams(params?: unknown) {
   const urlSearchParams = new URLSearchParams();
   if (params) {
-    for (const [key, value] of Object.entries(params)) {
+    Object.entries(params).forEach(([key, value]) => {
       if (Array.isArray(value)) {
-        for (const item of value) urlSearchParams.append(key, item);
+        value.forEach((item) => urlSearchParams.append(key, item));
       } else {
         urlSearchParams.set(key, value);
       }
-    }
+    });
   }
   return urlSearchParams.toString();
 }

@@ -29,20 +29,21 @@ export function SoundIndicator({
       const reset = () => setBarHeights(Array(barCount).fill(initHeight));
       reset();
       return;
-    }
-    const data = new Uint8Array(analyser.frequencyBinCount);
+    } else {
+      const data = new Uint8Array(analyser.frequencyBinCount);
 
-    const draw = () => {
-      analyser?.getByteFrequencyData(data);
-      setBarHeights(
-        Array.from({ length: barCount }, (_, i) => {
-          const val = data[i % data.length] ?? 0;
-          return Math.max(2, (val / 255) * 44);
-        }),
-      );
-      animFrameRef.current = requestAnimationFrame(draw);
-    };
-    draw();
+      const draw = () => {
+        analyser!.getByteFrequencyData(data);
+        setBarHeights(
+          Array.from({ length: barCount }, (_, i) => {
+            const val = data[i % data.length] ?? 0;
+            return Math.max(2, (val / 255) * 44);
+          }),
+        );
+        animFrameRef.current = requestAnimationFrame(draw);
+      };
+      draw();
+    }
     return () => cancelAnimationFrame(animFrameRef.current);
   }, [analyser, barCount, initHeight]);
 

@@ -7,7 +7,7 @@ export type MutationVariables = {
   body?: BodyInit;
 };
 
-// biome-ignore lint/suspicious/noExplicitAny: generic default for untyped callers
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ApiContextType<T = any> = {
   mutationFn: MutationFunction<T, MutationVariables>;
   onError: (error: Error) => boolean;

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import PauseIcon from "../icons/pause.svg";
-import PlayIcon from "../icons/play.svg";
+import PauseIcon from "../icons/pause.svg?react";
+import PlayIcon from "../icons/play.svg?react";
 import { toast } from "react-toastify";
 
 type Props = {
@@ -25,7 +25,7 @@ export function AnswerPlayer({ audioUrl, barCount = 48 }: Props) {
 
     const fetchAudio = async () => {
       const response = await fetch(
-        `${process.env.BUN_PUBLIC_API_URL || window.location.origin}/api/media/${audioUrl}`,
+        `${import.meta.env.VITE_API_URL || window.location.origin}/api/media/${audioUrl}`,
       );
       const arrayBuffer = await response.arrayBuffer();
       const decoded = await ctx.decodeAudioData(arrayBuffer);
@@ -66,7 +66,7 @@ export function AnswerPlayer({ audioUrl, barCount = 48 }: Props) {
   }, []);
 
   const resolvedUrl = audioUrl
-    ? `${process.env.BUN_PUBLIC_API_URL || window.location.origin}/api/media/${audioUrl}`
+    ? `${import.meta.env.VITE_API_URL || window.location.origin}/api/media/${audioUrl}`
     : null;
 
   const togglePlay = useCallback(() => {
@@ -116,7 +116,6 @@ export function AnswerPlayer({ audioUrl, barCount = 48 }: Props) {
     <div className="flex items-center gap-2 mb-3">
       <div className="flex-1 flex items-center gap-px h-13 p-2.5 rounded-xl border border-app-green-8 bg-app-green-9">
         <button
-          type="button"
           onClick={togglePlay}
           disabled={!audioUrl}
           className="shrink-0 mr-2 size-8 flex items-center justify-center rounded-full bg-app-green-5 text-white shadow-app-green-sm hover:bg-app-green-4 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"

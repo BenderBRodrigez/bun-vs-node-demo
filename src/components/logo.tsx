@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from "react";
-import { twMerge } from "tailwind-merge";
+import { HTMLAttributes } from "react";
 import { LogoAvatar } from "./logo-avatar";
+import { twMerge } from "tailwind-merge";
 
 type Props = HTMLAttributes<HTMLDivElement> & {
   theme?: "light" | "dark";

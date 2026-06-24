@@ -1,19 +1,17 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { InterviewQuestionPublic, VacancyPublic } from "../api/generated-types";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import type {
-  InterviewQuestionPublic,
-  VacancyPublic,
-} from "../api/generated-types";
-import type { MutationVariables } from "../api/types";
-import { useApi } from "../api/use-api";
+import { useMutation, useQuery } from "@tanstack/react-query";
+
 import { Card } from "../components/card";
 import { Header } from "../components/header";
 import { LogoAvatar } from "../components/logo-avatar";
 import { MicButton } from "../components/mic-button";
+import { MutationVariables } from "../api/types";
+import SkipForwardIcon from "../icons/skip-forward.svg?react";
 import { SoundIndicator } from "../components/sound-indicator";
-import SkipForwardIcon from "../icons/skip-forward.svg";
+import { toast } from "react-toastify";
+import { useApi } from "../api/use-api";
 
 export function Interview() {
   const navigate = useNavigate();
@@ -100,7 +98,7 @@ export function Interview() {
           body: formData,
         });
 
-        for (const track of stream.getTracks()) track.stop();
+        stream.getTracks().forEach((track) => track.stop());
         if (audioContextRef.current) {
           audioContextRef.current.close();
         }
@@ -108,7 +106,7 @@ export function Interview() {
 
       mediaRecorderRef.current.start();
     } catch (error) {
-      toast.error(`Failed to access microphone: ${(error as Error).message}`);
+      toast.error("Failed to access microphone: " + (error as Error).message);
     }
   }, [answerQuestion, interviewId, question.id]);
 
@@ -132,7 +130,6 @@ export function Interview() {
     }
   }, [interviewId, isFinish, navigate]);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: question?.id triggers reset when question changes even if text is identical
   useEffect(() => {
     const text = question?.text ?? "";
     let i = 0;
@@ -202,7 +199,6 @@ export function Interview() {
         </div>
 
         <button
-          type="button"
           className="flex items-center gap-1.5 text-xs text-gray-600 hover:text-gray-400 transition-colors mt-8 disabled:opacity-40 disabled:pointer-events-none"
           disabled={recording || isPending || isSkipPending || isFinish}
           onClick={() =>

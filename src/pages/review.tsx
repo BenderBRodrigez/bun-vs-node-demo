@@ -1,10 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import { useCallback, useMemo } from "react";
+import { InterviewPublic, ReviewDimension } from "../api/generated-types";
 import { Navigate, useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import { twMerge } from "tailwind-merge";
-import { type InterviewPublic, ReviewDimension } from "../api/generated-types";
-import { useApi } from "../api/use-api";
+import { useCallback, useMemo } from "react";
+
 import { AnswerCard } from "../components/answer-card";
 import { Card } from "../components/card";
 import { Logo } from "../components/logo";
@@ -12,6 +9,10 @@ import { QuestionCard } from "../components/question-card";
 import { QuestionDivider } from "../components/question-divider";
 import { ReviewPlaceholder } from "../components/review-placeholder";
 import { Spinner } from "../components/spinner";
+import { toast } from "react-toastify";
+import { twMerge } from "tailwind-merge";
+import { useApi } from "../api/use-api";
+import { useQuery } from "@tanstack/react-query";
 import { useReviewWs } from "../hooks/use-review-ws";
 
 const circleStyles = {
@@ -119,7 +120,7 @@ export function Review() {
     );
   }
 
-  if (interview?.status !== "completed") {
+  if (!interview || interview.status !== "completed") {
     return <Navigate replace to="/not-found" />;
   }
 
@@ -162,7 +163,6 @@ export function Review() {
             </div>
             <div className="flex items-center text-sm">
               <button
-                type="button"
                 title="Save this link to access your results later."
                 className="hover:text-app-gray-8 cursor-pointer"
                 onClick={copyLink}

@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
+import MicIcon from "../icons/mic.svg?react";
 import { twMerge } from "tailwind-merge";
-import MicIcon from "../icons/mic.svg";
 
 type Props = HTMLAttributes<HTMLButtonElement> & {
   state: "unavailable" | "ready" | "recording";
@@ -24,7 +24,6 @@ export function MicButton({ onClick, state }: Props) {
     <div className="relative size-28">
       {state === "recording" && (
         <svg
-          aria-hidden="true"
           className="absolute -top-[9px] -left-[9px] pointer-events-none"
           width="130"
           height="130"
@@ -42,7 +41,6 @@ export function MicButton({ onClick, state }: Props) {
         </svg>
       )}
       <button
-        type="button"
         disabled={state === "unavailable"}
         onClick={onClick}
         className={twMerge([

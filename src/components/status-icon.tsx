@@ -1,4 +1,4 @@
-import CheckIcon from "../icons/check.svg";
+import CheckIcon from "../icons/check.svg?react";
 
 type Props = { status: "pending" | "success" | "error" };
 

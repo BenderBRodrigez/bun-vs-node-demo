@@ -1,6 +1,6 @@
-import type { ComponentType, SelectHTMLAttributes, SVGProps } from "react";
+import { ComponentType, SVGProps, SelectHTMLAttributes } from "react";
 
-import ChevronDownIcon from "../icons/chevron-down.svg";
+import ChevronDownIcon from "../icons/chevron-down.svg?react";
 
 type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   IconComponent: ComponentType<SVGProps<SVGSVGElement>>;

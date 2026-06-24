@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import SpeakerIcon from "../icons/speaker.svg";
-import type { Status } from "../types";
+
 import { Card } from "./card";
-import type { SelectOption } from "./select-input";
+import { SelectOption } from "./select-input";
 import { SoundIndicator } from "./sound-indicator";
+import SpeakerIcon from "../icons/speaker.svg?react";
+import { Status } from "../types";
 
 type Props = {
   selectedMic: string;
@@ -87,7 +88,7 @@ export function MicrophoneLevelCard({
 
     return () => {
       setAnalyserNode(null);
-      if (stream) for (const t of stream.getTracks()) t.stop();
+      stream?.getTracks().forEach((t) => t.stop());
       ctx?.close();
     };
   }, [selectedMic, updateStatus]);

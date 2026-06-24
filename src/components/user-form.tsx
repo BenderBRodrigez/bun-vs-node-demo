@@ -1,12 +1,12 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
-import type { PropsWithChildren } from "react";
+import { MainButton } from "./main-button";
+import { PropsWithChildren } from "react";
+import { TextInput } from "./text-input";
+import { useApi } from "../api/use-api";
 import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
-import { useApi } from "../api/use-api";
-import { MainButton } from "./main-button";
-import { TextInput } from "./text-input";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 type Props = PropsWithChildren<{
   vacancyId?: string;

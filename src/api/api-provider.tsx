@@ -1,20 +1,20 @@
+import { useCallback, useMemo, type PropsWithChildren } from "react";
 import {
   QueryClient,
   QueryClientProvider,
   type QueryFunctionContext,
 } from "@tanstack/react-query";
-import { type PropsWithChildren, useCallback, useMemo } from "react";
 import { toast } from "react-toastify";
 
 import { ApiContext } from "./api-context";
-import { setQueryParams } from "./api-utils";
 import type { MutationVariables } from "./types";
+import { setQueryParams } from "./api-utils";
 
 export const ApiProvider = ({ children }: PropsWithChildren) => {
   const mutationFn = useCallback(
     async ({ path, method, headers, body }: MutationVariables) => {
       const response = await fetch(
-        `${process.env.BUN_PUBLIC_API_URL || window.location.origin}/api/${path}`,
+        `${import.meta.env.VITE_API_URL || window.location.origin}/api/${path}`,
         {
           method: method ?? "POST",
           headers: {
@@ -40,7 +40,7 @@ export const ApiProvider = ({ children }: PropsWithChildren) => {
       const [path, params] = queryKey;
       const urlSearchParams = setQueryParams(params);
       const response = await fetch(
-        `${process.env.BUN_PUBLIC_API_URL || window.location.origin}/api/${path}?${urlSearchParams.toString()}`,
+        `${import.meta.env.VITE_API_URL || window.location.origin}/api/${path}?${urlSearchParams.toString()}`,
         { signal },
       );
       if (response.ok) {
@@ -78,7 +78,7 @@ export const ApiProvider = ({ children }: PropsWithChildren) => {
             queryFn,
             retry: 3,
             refetchOnWindowFocus: false,
-            staleTime: Number.POSITIVE_INFINITY,
+            staleTime: Infinity,
           },
         },
       }),

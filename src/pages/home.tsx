@@ -1,17 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import type { VacancyPublic } from "../api/generated-types";
-import { useApi } from "../api/use-api";
+import BadgeIcon from "../icons/badge.svg?react";
+import BarChartIcon from "../icons/bar-chart.svg?react";
 import { Card } from "../components/card";
+import ClockIcon from "../icons/clock.svg?react";
+import GlobeIcon from "../icons/globe.svg?react";
 import { HomeFeature } from "../components/home-feature";
 import { HomeFeatureCard } from "../components/home-feature-card";
 import { Logo } from "../components/logo";
+import MessageIcon from "../icons/message.svg?react";
+import ShieldIcon from "../icons/shield.svg?react";
 import { UserForm } from "../components/user-form";
-import BadgeIcon from "../icons/badge.svg";
-import BarChartIcon from "../icons/bar-chart.svg";
-import ClockIcon from "../icons/clock.svg";
-import GlobeIcon from "../icons/globe.svg";
-import MessageIcon from "../icons/message.svg";
-import ShieldIcon from "../icons/shield.svg";
+import { VacancyPublic } from "../api/generated-types";
+import { useApi } from "../api/use-api";
+import { useQuery } from "@tanstack/react-query";
 
 export function Home() {
   const { onError } = useApi();

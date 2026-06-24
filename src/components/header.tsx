@@ -1,7 +1,7 @@
-import { useCallback } from "react";
-import { twMerge } from "tailwind-merge";
-import CheckIcon from "../icons/check.svg";
+import CheckIcon from "../icons/check.svg?react";
 import { Logo } from "./logo";
+import { twMerge } from "tailwind-merge";
+import { useCallback } from "react";
 
 type Props = {
   questionCount?: number;

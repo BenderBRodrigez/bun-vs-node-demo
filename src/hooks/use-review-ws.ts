@@ -8,7 +8,7 @@ export function useReviewWs(interviewId: string | undefined, enabled: boolean) {
   useEffect(() => {
     if (!enabled || !interviewId) return;
 
-    const wsUrl = `${process.env.BUN_PUBLIC_WS_URL}/api/interview/${interviewId}/reviews/ws`;
+    const wsUrl = `${import.meta.env.VITE_WS_URL}/api/interview/${interviewId}/reviews/ws`;
 
     const ws = new WebSocket(wsUrl);
 

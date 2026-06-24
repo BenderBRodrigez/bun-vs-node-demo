@@ -1,21 +1,22 @@
-import { useMutation } from "@tanstack/react-query";
+import { SelectInput, SelectOption } from "../components/select-input";
 import { useCallback, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { twMerge } from "tailwind-merge";
-import type { InterviewQuestionPublic } from "../api/generated-types";
-import type { MutationVariables } from "../api/types";
-import { useApi } from "../api/use-api";
+
 import { Card } from "../components/card";
+import HeadphonesIcon from "../icons/headphones.svg?react";
+import { InterviewQuestionPublic } from "../api/generated-types";
 import { Logo } from "../components/logo";
 import { MainButton } from "../components/main-button";
+import MicIcon from "../icons/mic.svg?react";
 import { MicrophoneLevelCard } from "../components/microphone-level-card";
-import { SelectInput, type SelectOption } from "../components/select-input";
+import { MutationVariables } from "../api/types";
+import { Status } from "../types";
 import { StatusIcon } from "../components/status-icon";
+import WifiIcon from "../icons/wifi.svg?react";
+import { twMerge } from "tailwind-merge";
+import { useApi } from "../api/use-api";
+import { useMutation } from "@tanstack/react-query";
 import { useNetCheck } from "../hooks/use-net-check";
-import HeadphonesIcon from "../icons/headphones.svg";
-import MicIcon from "../icons/mic.svg";
-import WifiIcon from "../icons/wifi.svg";
-import type { Status } from "../types";
 
 const backgroundStyles = {
   pending: null,

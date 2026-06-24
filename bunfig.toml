@@ -1,4 +1,0 @@
-
-[serve.static]
-plugins = ["bun-plugin-tailwind", "bun-plugin-svgr"]
-env = "BUN_PUBLIC_*"

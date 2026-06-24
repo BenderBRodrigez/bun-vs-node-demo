@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
 type Props = HTMLAttributes<HTMLDivElement> & {

@@ -1,6 +1,7 @@
-import type { ButtonHTMLAttributes, ComponentType, SVGProps } from "react";
+import { ButtonHTMLAttributes, ComponentType, SVGProps } from "react";
+
+import ArrowRightIcon from "../icons/arrow-right.svg?react";
 import { twMerge } from "tailwind-merge";
-import ArrowRightIcon from "../icons/arrow-right.svg";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   text: string;
