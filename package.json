@@ -1,0 +1,35 @@
+{
+	"name": "demo",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "bun --hot --env-file ../.env serve.ts",
+		"build": "bun --env-file ../.env build.ts",
+		"preview": "cd dist && NODE_ENV=production bun serve.js",
+		"lint": "biome check src",
+		"format": "biome format --write src",
+		"typegen": "swagger-typescript-api generate --path https://www.stfh.app/api/openapi.json -o ./src/api -n generated-types.ts --no-client"
+	},
+	"dependencies": {
+		"@hookform/resolvers": "^5.2.2",
+		"@tanstack/react-query": "^5.100.5",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-hook-form": "^7.75.0",
+		"react-router-dom": "^7.5.0",
+		"react-toastify": "^11.1.0",
+		"tailwind-merge": "^3.5.0",
+		"zod": "^4.4.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.0",
+		"@types/bun": "1.3.14",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"@vitejs/plugin-react": "^4.4.1",
+		"bun-plugin-svgr": "^0.1.0",
+		"bun-plugin-tailwind": "^0.1.2",
+		"swagger-typescript-api": "^13.12.0",
+		"tailwindcss": "^4.2.2"
+	}
+}

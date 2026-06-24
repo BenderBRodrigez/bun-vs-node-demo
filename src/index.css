@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Indigo */
+  --color-app-indigo-1: #f8f9ff;
+  --color-app-indigo-2: #eef2ff;
+  --color-app-indigo-3: #e0e7ff;
+  --color-app-indigo-4: #c6d2ff;
+  --color-app-indigo-5: #a5b4fc;
+  --color-app-indigo-6: #818cf8;
+  --color-app-indigo-7: #7c86ff;
+  --color-app-indigo-8: #6366f1;
+  --color-app-indigo-9: #615fff;
+  --color-app-indigo-10: #4f46e5;
+  --color-app-indigo-11: #4f39f6;
+  --color-app-indigo-12: #4338ca;
+  --color-app-indigo-13: #432dd7;
+  --color-app-indigo-14: #c7d2fe;
+  /* Purple */
+  --color-app-purple-1: #8e51ff;
+  /* Violet */
+  --color-app-violet-1: #f5f3ff;
+  --color-app-violet-2: #7c3aed;
+  --color-app-violet-3: #7f22fe;
+  --color-app-violet-4: #8b5cf6;
+  --color-app-violet-5: #ddd6fe;
+  /* Fuchsia */
+  --color-app-fuchsia-1: #ad46ff;
+  /* Gray */
+  --color-app-gray-1: #f7f7f8;
+  --color-app-gray-2: #f3f4f6;
+  --color-app-gray-3: #f9fafb;
+  --color-app-gray-4: #d1d5dc;
+  --color-app-gray-5: #99a1af;
+  --color-app-gray-6: #6a7282;
+  --color-app-gray-7: #4a5565;
+  --color-app-gray-8: #364153;
+  --color-app-gray-9: #374151;
+  --color-app-gray-10: #1a1a26;
+  --color-app-gray-11: #0c0c0f;
+  /* Green */
+  --color-app-green-1: #ecfdf5;
+  --color-app-green-2: #00d492;
+  --color-app-green-3: #00bc7d;
+  --color-app-green-4: #009966;
+  --color-app-green-5: #10b981;
+  --color-app-green-6: #34d399;
+  --color-app-green-7: #d1fae5;
+  --color-app-green-8: #a7f3d0;
+  --color-app-green-9: #f0fdf9;
+
+  /* Box shadows */
+  --shadow-app-green: 0 2px 10px rgba(16, 185, 129, 0.1);
+  --shadow-app-green-sm: 0px 2px 8px rgba(16, 185, 129, 0.25);
+  --shadow-app-glow-indigo: 0 0 80px rgba(99, 102, 241, 0.15), 0 0 40px rgba(99, 102, 241, 0.4);
+  --shadow-app-glow-indigo-sm: 0 0 16px 0 rgba(99, 102, 241, 0.5);
+  --shadow-app-card-light: 0 4px 6px -4px rgba(243, 244, 246, 0.6), 10px 15px -3px rgba(243, 244, 246, 0.6);
+  --shadow-app-btn-light: 0 1px 2px -1px var(--color-app-indigo-4), 0 1px 3px 0 var(--color-app-indigo-4);
+  --shadow-app-btn-dark: 0 4px 6px -4px rgba(49, 44, 133, 0.4), 0 10px 15px -3px rgba(49, 44, 133, 0.4);
+}
+
+@keyframes wave {
+  0% {
+    height: 3px;
+  }
+
+  100% {
+    height: 32px;
+  }
+}
+
+@keyframes mic-ring-dash {
+
+  0%,
+  100% {
+    stroke-dasharray: 0 98.175;
+    stroke-dashoffset: 0.5;
+    stroke: var(--color-app-indigo-10);
+  }
+
+  50% {
+    stroke-dasharray: 98.175 0;
+    stroke-dashoffset: 49.0875;
+    stroke: var(--color-app-violet-2);
+  }
+}
